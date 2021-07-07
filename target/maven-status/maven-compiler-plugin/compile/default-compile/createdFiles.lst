@@ -1,0 +1,6 @@
+mongodb\onetomany\rest\CompnayRestController.class
+mongodb\onetomany\repository\CompanyRepository.class
+mongodb\onetomany\document\Product.class
+mongodb\onetomany\document\Company.class
+mongodb\onetomany\document\Contact.class
+mongodb\onetomany\MongodbOnetomanyApplication.class
