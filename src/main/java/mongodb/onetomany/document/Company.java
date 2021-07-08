@@ -3,6 +3,7 @@ package mongodb.onetomany.document;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,6 +13,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 @Document(collection="company")
 public class Company {
 
+	@Transient
+    public static final String SEQUENCE_NAME = "company_seq";
 	@Id
 	private Integer id;
 	private String name;

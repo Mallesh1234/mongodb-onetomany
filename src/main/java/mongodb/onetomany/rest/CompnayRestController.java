@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mongodb.onetomany.document.Company;
 import mongodb.onetomany.repository.CompanyRepository;
+import mongodb.onetomany.service.SequenceGeneratorService;
 
 @RestController()
 @RequestMapping("/rest")
@@ -22,6 +23,9 @@ public class CompnayRestController {
 
 	@Autowired
 	private CompanyRepository repo;
+	
+	@Autowired
+	private SequenceGeneratorService seqService;
 	
 	@GetMapping("/findAll")
 	public ResponseEntity<List<Company>> findAll()
@@ -32,6 +36,7 @@ public class CompnayRestController {
 	@PostMapping("/save")
 	public ResponseEntity<Company> save(@RequestBody Company company)
 	{
+		company.setId(seqService.generateSequence(Company.SEQUENCE_NAME));
 		repo.save(company);
 		return new ResponseEntity<Company>(company,HttpStatus.OK);
 	}
@@ -44,7 +49,7 @@ public class CompnayRestController {
 	@DeleteMapping("/delete")
 	public ResponseEntity<Company> delete(@RequestBody Company company)
 	{
-		repo.deleteById(company.getId());
+		repo.deleteAll();
 		return new ResponseEntity<Company>(company,HttpStatus.OK);
 	}
 }
