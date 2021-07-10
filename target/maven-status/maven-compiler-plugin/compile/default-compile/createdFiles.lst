@@ -1,5 +1,7 @@
 mongodb\onetomany\rest\CompnayRestController.class
+mongodb\onetomany\document\DatabaseSequence.class
 mongodb\onetomany\repository\CompanyRepository.class
+mongodb\onetomany\service\SequenceGeneratorService.class
 mongodb\onetomany\document\Product.class
 mongodb\onetomany\document\Company.class
 mongodb\onetomany\document\Contact.class
